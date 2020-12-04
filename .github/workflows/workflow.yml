@@ -20,7 +20,7 @@ jobs:
       run: |
         go build ./cmd/main.go
         mkdir tasks_scheduler
-        ls -a -l
+        cp main tasks_scheduler/tasks_scheduler
     - uses: actions/upload-artifact@v2
       with:
         name: tasks_scheduler 
