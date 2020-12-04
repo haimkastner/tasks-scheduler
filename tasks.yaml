@@ -1,0 +1,30 @@
+tasks: 
+ -
+  name: "Hourly task with Windows application execution example"
+  application: "C:\\Program Files\\PuTTY\\putty.exe"
+  scheduler: hourly
+  minute: 30 # every half-hour
+ - 
+  name: "Daily task with Linux application execution example"
+  application: "echo"
+  args: # optional arguments list to pass to the application on execution
+    - "arg a"
+    - "arg b"
+  scheduler: daily
+  hour: 20 # every day in 8:00 PM
+  minute: 0
+ - 
+  name: "Weekly Win32 Robocopy task example"
+  application: "Robocopy" 
+  args:  # a real world weekend mirror copy task example
+    - "C:\\source"
+    - "C:\\destination"
+    - "/MIR"
+    - "/FFT"
+    - "/Z"
+    - "/XA:H"
+    - "/W:5"
+  scheduler: weekly
+  day: 4 # every week in thursday 23:59 PM
+  hour: 23
+  minute: 59
