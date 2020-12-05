@@ -1,0 +1,40 @@
+name: Tasks Scheduler CI CD
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        go-version: [1.15.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: ${{ matrix.go-version }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Build & Upload Artifact
+      run: |
+        mkdir tasks_scheduler
+        echo "build linux x86 bin"
+        go build ./cmd/main.go
+        cp main tasks_scheduler/tasks_scheduler_linux_x86
+        echo "build linux arm bin"
+        export GOOS=linux
+        export GOARCH=arm
+        export GOARM=5
+        go build ./cmd/main.go
+        cp main tasks_scheduler/tasks_scheduler_linux_arm
+        echo "build win exe"
+        export GOOS=windows
+        export GOARCH=amd64
+        go build ./cmd/main.go
+        cp main.exe tasks_scheduler/tasks_scheduler.exe
+        cp tasks.yaml tasks_scheduler/tasks.yaml
+    - uses: actions/upload-artifact@v2
+      with:
+        name: tasks_scheduler
+        path: tasks_scheduler
