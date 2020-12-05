@@ -1,6 +1,6 @@
 # tasks-scheduler
 
-[![CI CD Status](https://github.com/haimkastner/tasks-scheduler/workflows/Tasks%Scheduler%20CI%20CD/badge.svg?branch=main)](https://github.com/haimkastner/tasks-scheduler/actions)
+[![CI CD Status](https://github.com/haimkastner/tasks-scheduler/workflows/Tasks%20Scheduler%20CI%20CD/badge.svg?branch=main)](https://github.com/haimkastner/tasks-scheduler/actions)
 
 A lightweight Go task schedule to run any application in schedule. 
 
