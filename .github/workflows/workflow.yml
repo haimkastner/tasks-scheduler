@@ -1,4 +1,4 @@
-name: tasks scheduler CI CD
+name: Tasks Scheduler CI CD
 
 on: [push]
 
@@ -36,5 +36,5 @@ jobs:
         cp tasks.yaml tasks_scheduler/tasks.yaml
     - uses: actions/upload-artifact@v2
       with:
-        name: tasks_scheduler 
-        path: tasks_scheduler 
+        name: tasks_scheduler
+        path: tasks_scheduler
