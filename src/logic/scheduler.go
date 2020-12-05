@@ -34,7 +34,7 @@ func onActivationTik(tasks *model.Tasks) {
 		// If task should trigger, do it.
 		if isTaskShouldTrigger {
 			logger.Info(fmt.Sprintf(`The task "%s" trigger scheduled to now`, task.Name))
-			RunTask(&task)
+			RunTask(task)
 		}
 	}
 }

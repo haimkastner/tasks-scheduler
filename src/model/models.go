@@ -33,5 +33,6 @@ type Task struct {
 // Represents an collection of tasks to trigger by scheduler
 type Tasks struct {
 	// The tasks collection
-	Tasks []Task
+	// (hold as pointers array for performance and to allow pass it within a for loop to a goroutine)
+	Tasks []*Task
 }

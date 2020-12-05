@@ -34,5 +34,5 @@ func RunTask(task *model.Task) {
 	// Start task runner async
 	// notice to pass the real object address and *not" just copy the popinter,
 	// because tasks (and any) for iterator used the same pointer for iterating object, so the async runner can got wrong task in middle of the execution
-	go runTaskAsync(&*task)
+	go runTaskAsync(task)
 }
