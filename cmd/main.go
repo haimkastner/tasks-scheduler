@@ -11,8 +11,8 @@ func main() {
 	logger.Info("Starting scheduler app...")
 
 	logger.Info("Get tasks...")
-	tasks := logic.GetTasks()
+	tasksPtr := logic.GetTasks()
 
 	logger.Info("Active schedule...")
-	logic.ActiveSchedule(tasks)
+	logic.ActiveSchedule(tasksPtr)
 }
