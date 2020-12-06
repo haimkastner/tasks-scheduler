@@ -69,7 +69,7 @@ func loadTasks(tasksPtr **model.Tasks) {
 		logger.Error("Failed to parse tasks file error: ", err)
 		logger.Warning("Please fix the file, then save it and wait for the file change detection")
 		// In case of failure, set an empty tasks
-		*tasksPtr = &model.Tasks{Tasks: []model.Task{}}
+		*tasksPtr = &model.Tasks{Tasks: nil}
 		return
 	}
 
