@@ -2,6 +2,7 @@ package logic
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/google/logger"
@@ -54,7 +55,7 @@ func isMinuteChanged() bool {
 }
 
 // Active scheduler endless loop
-func ActiveSchedule(tasks *model.Tasks) {
+func ActiveSchedule(tasksPtr **model.Tasks) {
 
 	logger.Info("The task-scheduler is running")
 
@@ -63,8 +64,9 @@ func ActiveSchedule(tasks *model.Tasks) {
 		time.Sleep(utils.SCHEDULER_ACTIVATION_SEC * time.Second)
 		// Run the activation tik only once in a minute
 		if isMinuteChanged() {
-			logger.Info("Scheduler activation tik")
-			onActivationTik(tasks)
+			// Print to console (only)
+			log.Print("Scheduler activation tik")
+			onActivationTik(*tasksPtr)
 		}
 	}
 }

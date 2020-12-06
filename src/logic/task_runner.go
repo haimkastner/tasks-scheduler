@@ -18,15 +18,15 @@ func runTaskAsync(task *model.Task) {
 	// Invoke the application
 	stdout, err := cmd.Output()
 
+	// Print to console (only) the application stdout
+	log.Print(string(stdout))
+
 	// If the application fail, log it
 	if err == nil {
 		logger.Info(fmt.Sprintf(`Executing task "%s" succeed`, task.Name))
 	} else {
 		logger.Warning(fmt.Sprintf(`Executing task "%s" return with non zero code, %v`, task.Name, err))
 	}
-
-	// Print to console the application stdout
-	log.Print(string(stdout))
 }
 
 // Invoke task application
