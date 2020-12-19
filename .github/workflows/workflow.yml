@@ -18,21 +18,13 @@ jobs:
       uses: actions/checkout@v2
     - name: Build & Upload Artifact
       run: |
+        echo "build binaries..."
+        make build-all
+        echo "build done"
         mkdir tasks_scheduler
-        echo "build linux x86 bin"
-        go build ./cmd/main.go
-        cp main tasks_scheduler/tasks_scheduler_linux_x86
-        echo "build linux arm bin"
-        export GOOS=linux
-        export GOARCH=arm
-        export GOARM=5
-        go build ./cmd/main.go
-        cp main tasks_scheduler/tasks_scheduler_linux_arm
-        echo "build win exe"
-        export GOOS=windows
-        export GOARCH=amd64
-        go build ./cmd/main.go
-        cp main.exe tasks_scheduler/tasks_scheduler.exe
+        cp tasks_scheduler_linux_x86 tasks_scheduler/tasks_scheduler_linux_x86
+        cp tasks_scheduler_linux_arm tasks_scheduler/tasks_scheduler_linux_arm
+        cp tasks_scheduler.exe tasks_scheduler/tasks_scheduler.exe
         cp tasks.yaml tasks_scheduler/tasks.yaml
     - uses: actions/upload-artifact@v2
       with:
