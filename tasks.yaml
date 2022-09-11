@@ -3,7 +3,7 @@ tasks:
   name: "Hourly task with Windows application execution example"
   application: "C:\\Program Files\\PuTTY\\putty.exe"
   scheduler: hourly
-  minute: 30 # every half-hour
+  minute: 30 # Once an hour, when the clock on 30 minutes
  - 
   name: "Daily task with Linux application execution example"
   application: "echo"
